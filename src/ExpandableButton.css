@@ -1,0 +1,117 @@
+ /* src/ExpandableButton.css */
+
+.expandable-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expandable-button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%; /* Circular shape */
+  background-color: #343541; /* Optional background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+}
+
+.toggle-switcher {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  background-color: #343541;
+  border: 2px solid #999;
+  border-radius: 50%; /* Circle when collapsed */
+  /* No transition here */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  z-index: 2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Expanded toggle switcher */
+.toggle-switcher.expanded {
+  height: 150px; /* Expanded height */
+  width: 45px;   /* Expanded width */
+  border-radius: 30px; /* Transition from circle to ellipse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+  /* Apply transitions only when expanding */
+  transition: height 0.5s ease, width 0.1s ease, border-radius 0.1s ease, box-shadow 0.5s ease;
+}
+
+.main-button-icon {
+  color: #fff;
+  margin-top: 10px;
+}
+
+.sub-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  opacity: 0;
+  /* No transition here */
+}
+
+/* Show sub-buttons when expanded */
+.sub-buttons.visible {
+  opacity: 1;
+  /* Apply transition only when becoming visible */
+  transition: opacity 0.5s ease-in-out;
+}
+
+.sub-button {
+  background-color: #40414f;
+  color: #fff;
+  border: none;
+  border-radius: 50%; /* Ensure sub-buttons are circular */
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.5s ease; /* Hover transition */
+}
+
+.sub-button:hover {
+  background-color: #55566c;
+}
+
+/* Tooltip Styles */
+.tooltip {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 3;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -50px; /* Center the tooltip */
+  opacity: 0;
+  /* No transition here */
+  font-size: 12px;
+  width: 100px;
+}
+
+.sub-button:hover .tooltip,
+.expandable-button:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  /* Apply transition only when appearing */
+  transition: opacity 0.5s ease;
+}

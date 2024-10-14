@@ -1,0 +1,47 @@
+/* src/Sidebar.css */
+.sidebar {
+    width: 260px;
+    background-color: #202123;
+    color: #d1d5db;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar h2 {
+    padding: 20px;
+    margin: 0;
+    font-size: 18px;
+    color: #fff;
+    border-bottom: 1px solid #2a2b32;
+  }
+  
+  .new-chat-button {
+    margin: 20px;
+    padding: 10px;
+    background-color: #2a2b32;
+    color: #fff;
+    border: 1px solid #565869;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .new-chat-button:hover {
+    background-color: #3e3f4b;
+  }
+  
+  .conversation-list {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .conversation-list li {
+    padding: 15px 20px;
+    cursor: pointer;
+    color: #d1d5db;
+  }
+  
+  .conversation-list li:hover {
+    background-color: #2a2b32;
+  }
+  
